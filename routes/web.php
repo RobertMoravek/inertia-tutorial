@@ -14,5 +14,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return inertia('Welcome');
+    return inertia('Home', [
+        "name" => "Robert"
+    ]);
 });
+
+Route::get('/users', function () {
+    return inertia('Users', [
+        "time" => now()->toTimeString()
+    ]);
+});
+
+Route::get('/settings', function () {
+    return inertia('Settings', [
+        "name" => "Robert"
+    ]);
+});
+
+Route::post("/logout", function () {
+    dd("logged out");
+} );
+

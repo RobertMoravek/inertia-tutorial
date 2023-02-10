@@ -41,6 +41,11 @@ class HandleInertiaRequests extends Middleware
             	'php' => PHP_VERSION,
             	'laravel' => \Illuminate\Foundation\Application::VERSION
             ],
+            "auth" => [
+                "user" =>[
+                    "username" => "RoMo"
+                ]
+            ]
         ]);
     }
 }
