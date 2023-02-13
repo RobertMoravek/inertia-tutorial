@@ -55,13 +55,13 @@ let props = defineProps({
 
 let search = ref(props.filters.search);
 
-watch(search, value => {
+watch(search, throttle (function (value) {
     Inertia.get("/users", {search: value},
         {
             preserveState: true,
             replace: true
         })
-})
+}, 500));
 
 </script>
 

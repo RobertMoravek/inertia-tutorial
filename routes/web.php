@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Models\User;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
@@ -14,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get("login", [LoginController::class, "create"])->name("login");
+Route::post("login", [LoginController::class, "store"]);
+
+Route::middleware("auth")->group(function () {
+
 
 Route::get('/', function () {
     return inertia('Home', [
@@ -62,3 +69,4 @@ Route::post("/logout", function () {
     dd("logged out");
 } );
 
+});
