@@ -1,4 +1,8 @@
-<template layout="Layout">
+<template>
+<Head>
+    <title>Home</title>
+    <meta name = "description" content="Home information">
+</Head>
 
         <h1 class="text-4xl font-semibold">Home</h1>
 
@@ -8,8 +12,8 @@
 
 
 <script setup lang="ts">
-import Nav from "@/views/Shared/Nav.vue";
-import Layout from "@/views/layouts/Layout.vue";
+
+
 
 defineProps({
 

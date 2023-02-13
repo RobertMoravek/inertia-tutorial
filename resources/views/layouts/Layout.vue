@@ -4,7 +4,8 @@
 import Nav from "@/views/Shared/Nav.vue";
 </script>
 
-<template ´>
+<template >
+
 
     <header class="flex bg-gray-400 py-4 px-6 justify-between">
         <h1 class="font-bold text-lg">My Inertia App</h1>

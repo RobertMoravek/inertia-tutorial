@@ -1,4 +1,4 @@
-<template layout="Layout">
+<template>
 
         <h1 class="text-4xl font-semibold">Settings</h1>
 

@@ -1,0 +1,46 @@
+<template>
+    <h1 class="text-3xl">Create new user</h1>
+
+    <form @submit.prevent="submit">
+        <div class="mb-6">
+            <label for="name">Name</label>
+            <input v-model="form.name" class="border border-gray-400 p-2 w-full"  type="text" name="name" id="name" >
+            <div v-if="form.errors.name" v-text="form.errors.name" class="text-red-500"></div>
+        </div>
+        <div class="mb-6">
+            <label for="email">E-Mail</label>
+            <input v-model="form.email"  class="border border-gray-400 p-2 w-full"  type="text" email="email" id="email" >
+            <div v-if="form.errors.name" v-text="form.errors.name" class="text-red-500"></div>
+
+        </div>
+        <div class="mb-6">
+            <label for="password">Password</label>
+            <input v-model="form.password"  class="border border-gray-400 p-2 w-full"  type="password" password="password" id="password" >
+            <div v-if="form.errors.password" v-text="form.errors.password" class="text-red-500"></div>
+
+        </div>
+        <input type="submit">
+    </form>
+
+</template>
+
+<script setup>
+import {reactive, ref} from 'vue';
+import {useForm} from '@inertiajs/inertia-vue3';
+
+
+let form= useForm({
+    name: "",
+    email: "",
+    password: ""
+});
+
+let processing = ref(false);
+
+let submit = () => {
+    form.post("/users", form, {
+        onStart: () => {processing.value = true},
+        onFinish: () => {processing.value = false}
+    });
+}
+</script>
